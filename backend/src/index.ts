@@ -25,3 +25,6 @@ if (process.env.NODE_ENV !== "development") {
 app.listen(PORT, () => {
   console.log("Server is running on port " + PORT);
 });
+
+//todo: add socket.io
+//todo configure this server for the deployment
