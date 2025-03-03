@@ -1,10 +1,9 @@
 import { LogOut } from "lucide-react";
 import ThemeController from "./ThemeController";
+import useLogout from "../../hooks/useLogout";
 
 const LogoutButton = () => {
-  const logout = () => {
-    alert("You are logged out");
-  };
+  const { logout } = useLogout();
 
   return (
     <div className="mt-auto flex items-center space-x-4">

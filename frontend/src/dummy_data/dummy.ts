@@ -30,7 +30,7 @@ export const DUMMY_CONVERSATIONS = [
     emoji: "🧛",
   },
   {
-    id: 5,
+    id: 6,
     fullName: "Bricia",
     profilePic: "https://avatar.iran.liara.run/public/girl?username=bricia",
     emoji: "🧛",

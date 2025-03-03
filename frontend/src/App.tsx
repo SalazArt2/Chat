@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import { Helmet } from "react-helmet";
 import { useAuthContext } from "./context/AuthContext";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { authUser, isLoading } = useAuthContext();
@@ -50,6 +51,7 @@ function App() {
           }
         />
       </Routes>
+      <Toaster />
     </div>
   );
 }
