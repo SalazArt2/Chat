@@ -23,7 +23,7 @@ const LanguageController = () => {
 
   return (
     <div className="flex items-center">
-      <label htmlFor="language-selector" className="mr-2">
+      <label htmlFor="language-selector" className="mr-2 text-accent-content">
         {t("language")}:
       </label>
       <select
