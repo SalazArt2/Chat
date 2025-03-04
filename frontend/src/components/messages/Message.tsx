@@ -11,6 +11,8 @@ const Message = ({ message }: { message: MessageType }) => {
 
   const bubbleBg = fromMe ? "bg-blue-500" : "bg-accent";
   const bubbleTxt = fromMe ? "text-white" : "text-base-200";
+  const shakeClass = message.shouldShake ? "shake" : "";
+
   return (
     <div className={`chat ${chatClass}`}>
       <div className="hidden md:block chat-image avatar">
@@ -18,7 +20,9 @@ const Message = ({ message }: { message: MessageType }) => {
           <img alt="Tailwind CSS chat bubble component" src={img} />
         </div>
       </div>
-      <p className={`chat-bubble ${bubbleTxt} ${bubbleBg} text-sm md:text-md`}>
+      <p
+        className={`chat-bubble ${bubbleTxt} ${bubbleBg} ${shakeClass} text-sm md:text-md`}
+      >
         {message.body}
       </p>
       <span className="chat-footer opacity-50 text-xs flex gap-1 items-center text-secondary-content">
