@@ -1,9 +1,9 @@
+// backend/src/socket/socket.ts
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
 
 const app = express();
-
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -26,7 +26,14 @@ io.on("connection", (socket) => {
 
   if (userId) userSocketMap[userId] = socket.id;
 
+  // Emitir usuarios online a todos los conectados
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
+
+  // Emitir las conversaciones actuales cuando un usuario se conecta
+  io.emit("updateConversations", {
+    message: "Actualización de conversaciones",
+    users: Object.keys(userSocketMap),
+  });
 
   socket.on("disconnect", () => {
     console.log("user disconnected", socket.id);

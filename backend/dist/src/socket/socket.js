@@ -21,6 +21,11 @@ io.on("connection", (socket) => {
     if (userId)
         userSocketMap[userId] = socket.id;
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
+    // Escuchar el evento 'newUserRegistered' emitido por un cliente
+    socket.on("newUserRegistered", (user) => {
+        console.log("Servidor recibió newUserRegistered:", user); // Log de depuración
+        io.emit("newUserRegistered", user); // Emitir a todos los clientes conectados
+    });
     socket.on("disconnect", () => {
         console.log("user disconnected", socket.id);
         delete userSocketMap[userId];

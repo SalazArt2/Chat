@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Dispatch,
   ReactNode,
@@ -48,7 +47,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
         }
         setAuthUser(data);
       } catch (error: any) {
-        console.error(error.message);
+        console.error(error);
         toast.error(error.message);
       } finally {
         setIsLoading(false);

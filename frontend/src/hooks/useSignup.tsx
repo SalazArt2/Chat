@@ -1,6 +1,9 @@
+// frontend/src/hooks/useSignup.tsx
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
+import { useSocketContext } from "../context/SocketContext"; // Importar el socket
 import toast from "react-hot-toast";
+
 type SignupInputs = {
   fullName: string;
   username: string;
@@ -8,9 +11,11 @@ type SignupInputs = {
   confirmPassword: string;
   gender: string;
 };
+
 const useSignup = () => {
   const [loading, setLoading] = useState(false);
   const { setAuthUser } = useAuthContext();
+  const { socket } = useSocketContext(); // Usar el socket
 
   const signup = async (inputs: SignupInputs) => {
     try {
@@ -24,7 +29,11 @@ const useSignup = () => {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+
       setAuthUser(data);
+
+      // Emitir el nuevo usuario registrado a través del socket
+      socket?.emit("newUserRegistered", data);
     } catch (error: any) {
       console.error(error.message);
       toast.error(error.message);
@@ -32,6 +41,8 @@ const useSignup = () => {
       setLoading(false);
     }
   };
+
   return { loading, signup };
 };
+
 export default useSignup;

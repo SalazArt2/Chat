@@ -1,29 +1,36 @@
+// frontend/src/hooks/useGetConversations.tsx
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { useSocketContext } from "../context/SocketContext";
 
 const useGetConversations = () => {
+  const { socket, conversations, setConversations } = useSocketContext();
   const [loading, setLoading] = useState(false);
-  const [conversations, setConversations] = useState<ConversationType[]>([]);
 
   useEffect(() => {
-    const getConversations = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/messages/conversations");
-        const data = await res.json();
-        if (data.error) {
-          throw new Error(data.error);
-        }
-        setConversations(data.users);
-      } catch (error: any) {
-        toast.error(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+    setLoading(!socket?.connected);
 
-    getConversations(); //yRsGo1vCa2PC39b4rNEfShnPqxij6WJVStq3ZvEGd9o
-  }, []);
+    socket?.on("connect", () => {
+      console.log("Socket conectado:", socket.id);
+      setLoading(false);
+
+      // Obtener las conversaciones después de la conexión
+      socket?.emit("getConversationsRequest"); // Este puede ser un evento que el backend escucha para enviar las conversaciones
+    });
+
+    socket?.on("disconnect", () => {
+      console.warn("Socket desconectado");
+      setLoading(true);
+    });
+
+    // Actualiza las conversaciones cuando el servidor emita el evento 'updateConversations'
+    socket?.on("updateConversations", (newConversations) => {
+      setConversations(newConversations.users); // Suponiendo que `users` contiene las conversaciones actualizadas
+    });
+
+    return () => {};
+  }, [socket]);
+
   return { loading, conversations };
 };
+
 export default useGetConversations;
