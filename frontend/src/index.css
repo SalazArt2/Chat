@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin 'tailwind-scrollbar';
 @plugin "daisyui" {
-  themes: winter --default, dark --prefersdark;
+  themes: winter --default, dracula --prefersdark;
 }
 /* styles.css o un archivo global */
 html,

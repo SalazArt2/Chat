@@ -2,11 +2,11 @@ const ThemeController = () => {
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
-      <input type="checkbox" className="theme-controller" value="dark" />
+      <input type="checkbox" className="theme-controller" value="dracula" />
 
       {/* sun icon */}
       <svg
-        className="swap-off h-10 w-10 fill-base-100"
+        className="swap-off h-10 w-10 fill-neutral-content"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -15,7 +15,7 @@ const ThemeController = () => {
 
       {/* moon icon */}
       <svg
-        className="swap-on h-10 w-10 fill-base-content"
+        className="swap-on h-10 w-10 fill-neutral-content"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
