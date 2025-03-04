@@ -3,16 +3,18 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import useConversation from "../../zustand/useConversation";
 import useGetConversations from "../../hooks/useGetConversations";
+import { useTranslation } from "react-i18next";
 const SearchInput = () => {
   const [search, setSearch] = useState("");
   const { setSelectedConversation } = useConversation();
   const { conversations } = useGetConversations();
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!search) return;
     if (search.length < 3) {
-      return toast.error("Search query must be at least 3 characters long");
+      return toast.error(t("search.error"));
     }
     const conversation = conversations.find((c: ConversationType) =>
       c.fullName.toLowerCase().includes(search.toLowerCase())
@@ -21,14 +23,14 @@ const SearchInput = () => {
     if (conversation) {
       setSelectedConversation(conversation);
       setSearch("");
-    } else toast.error("No user found with that name");
+    } else toast.error(t("search.notfound"));
   };
 
   return (
     <form className="flex items-center gap-2" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Search…"
+        placeholder={t("search.placeholder")}
         className="input-sm md:input input-bordered rounded-full sm:rounded-full w-full"
         value={search}
         onChange={(e) => setSearch(e.target.value)}

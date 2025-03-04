@@ -1,0 +1,51 @@
+{
+  "loading": "Cargando...",
+  "home": {
+    "title": "Inicio - Chat"
+  },
+  "signup": {
+    "title": "Registrarse - Chat",
+    "fullname": "Nombre completo",
+    "fullnameplh": "Ingrese su nombre completo",
+    "username": "Nombre de usuario",
+    "usernameplh": "Ingrese su nombre de usuario",
+    "password": "Contraseña",
+    "passwordplh": "Ingrese su contraseña",
+    "confpassword": "Confirmar Contraseña",
+    "confpasswordplh": "Confirme su contraseña",
+    "haveaccount": "Ya tienes una cuenta?",
+    "signup": "Registrarse",
+    "gender": {
+      "male": "Hombre",
+      "female": "Mujer"
+    }
+  },
+  "login": {
+    "title": "Iniciar Sesión - Chat",
+    "username": "Nombre de usuario",
+    "usernameplh": "Ingrese su nombre de usuario",
+    "password": "Contraseña",
+    "passwordplh": "Ingrese su contraseña",
+    "noaccount": "¿Aún no tienes cuenta?",
+    "login": "Iniciar sesión"
+  },
+  "chat": {
+    "to": "Para",
+    "select": "Selecciona un chat para empezar una conversación",
+    "placeholder": "Escribe un mensaje"
+  },
+  "search": {
+    "placeholder": "Buscar...",
+    "error": "Ingrese al menos 3 caracteres",
+    "notfound": "No se encontró ningún usuario con ese nombre"
+  },
+  "theme": {
+    "light": "Cambiar a modo claro",
+    "dark": "Cambiar a modo oscuro"
+  },
+  "logout": "Cerrar Sesión",
+  "language": "Idioma",
+  "spanish": "Español",
+  "english": "Inglés",
+  "welcome": "Bienvenido"
+}

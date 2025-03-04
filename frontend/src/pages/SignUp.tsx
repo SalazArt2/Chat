@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import GenderCheckbox from "../components/GenderCheckbox";
 import { useState } from "react";
 import useSignup from "../hooks/useSignup";
+import { useTranslation } from "react-i18next";
 
 const SignUp = () => {
+  const { t } = useTranslation();
   const [inputs, setInputs] = useState({
     fullName: "",
     username: "",
@@ -24,17 +26,20 @@ const SignUp = () => {
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-secondary bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
         <h1 className="text-3xl font-semibold text-center text-base-200">
-          Sign Up <span className="text-secondary-content"> ChatApp</span>
+          {t("signup.signup")}{" "}
+          <span className="text-secondary-content"> Chat</span>
         </h1>
 
         <form onSubmit={handleSubmitForm}>
           <div>
             <label className="label p-2">
-              <span className="text-base-100 label-text">Full Name</span>
+              <span className="text-base-100 label-text">
+                {t("signup.fullname")}
+              </span>
             </label>
             <input
               type="text"
-              placeholder="John Doe"
+              placeholder={t("signup.fullnameplh")}
               className="w-full input input-bordered  h-10"
               value={inputs.fullName}
               onChange={(e) =>
@@ -45,11 +50,13 @@ const SignUp = () => {
 
           <div>
             <label className="label p-2 ">
-              <span className="text-base-100 label-text">Username</span>
+              <span className="text-base-100 label-text">
+                {t("signup.username")}
+              </span>
             </label>
             <input
               type="text"
-              placeholder="johndoe"
+              placeholder={t("signup.usernameplh")}
               className="w-full input input-bordered h-10"
               value={inputs.username}
               onChange={(e) =>
@@ -60,11 +67,13 @@ const SignUp = () => {
 
           <div>
             <label className="label p-2">
-              <span className="text-base-100 label-text">Password</span>
+              <span className="text-base-100 label-text">
+                {t("signup.password")}
+              </span>
             </label>
             <input
               type="password"
-              placeholder="Enter Password"
+              placeholder={t("signup.passwordplh")}
               className="w-full input input-bordered h-10"
               value={inputs.password}
               onChange={(e) =>
@@ -75,11 +84,13 @@ const SignUp = () => {
 
           <div>
             <label className="label p-2">
-              <span className="text-base-100 label-text">Confirm Password</span>
+              <span className="text-base-100 label-text">
+                {t("signup.confpassword")}
+              </span>
             </label>
             <input
               type="password"
-              placeholder="Confirm Password"
+              placeholder={t("signup.confpasswordplh")}
               className="w-full input input-bordered h-10"
               value={inputs.confirmPassword}
               onChange={(e) =>
@@ -97,7 +108,7 @@ const SignUp = () => {
             to={"/login"}
             className="text-sm hover:underline hover:text-blue-300 mt-2 inline-block text-white p-2"
           >
-            Already have an account?
+            {t("signup.haveaccount")}
           </Link>
 
           <div>
@@ -105,7 +116,7 @@ const SignUp = () => {
               className="btn text-accent-content btn-block btn-sm mt-2 border border-slate-700 btn-accent hover:btn-info hover:text-info-content"
               disabled={loading}
             >
-              {loading ? "Cargando..." : "Sign Up"}
+              {loading ? t("loading") : t("signup.signup")}
             </button>
           </div>
         </form>

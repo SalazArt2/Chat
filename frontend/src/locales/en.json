@@ -1,0 +1,51 @@
+{
+  "loading": "Loading...",
+  "home": {
+    "title": "Home - Chat"
+  },
+  "signup": {
+    "title": "Sign Up - Chat",
+    "fullname": "Full Name",
+    "fullnameplh": "Enter your full name",
+    "username": "Username",
+    "usernameplh": "Enter your username",
+    "password": "Password",
+    "passwordplh": "Enter password",
+    "confpassword": "Confirm Password",
+    "confpasswordplh": "Confirm your password",
+    "haveaccount": "Already have an account?",
+    "signup": "Sign up",
+    "gender": {
+      "male": "Hombre",
+      "female": "Mujer"
+    }
+  },
+  "login": {
+    "title": "Login - Chat",
+    "username": "Username",
+    "usernameplh": "Enter your username",
+    "password": "Password",
+    "passwordplh": "Enter your password",
+    "noaccount": "Don't you have an account?",
+    "login": "Login"
+  },
+  "chat": {
+    "to": "To",
+    "select": "Select a chat to start messaging",
+    "placeholder": "Send a message"
+  },
+  "search": {
+    "placeholder": "Search...",
+    "error": "Search query must be at least 3 characters long",
+    "notfound": "No user found with that name"
+  },
+  "theme": {
+    "light": "Cambiar a modo claro",
+    "dark": "Cambiar a modo oscuro"
+  },
+  "logout": "Logout",
+  "language": "Language",
+  "spanish": "Spanish",
+  "english": "English",
+  "welcome": "Welcome"
+}

@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 const GenderCheckbox = ({
   selectedGender,
   onCheckboxChange,
@@ -5,6 +7,7 @@ const GenderCheckbox = ({
   selectedGender: string;
   onCheckboxChange: (gender: "male" | "female") => void;
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="flex gap-4 justify-center my-4">
       <div className="form-control">
@@ -16,7 +19,9 @@ const GenderCheckbox = ({
             checked={selectedGender === "male"}
             onChange={() => onCheckboxChange("male")}
           />
-          <span className="label-text text-base-300">Male</span>
+          <span className="label-text text-base-300">
+            {t("signup.gender.male")}
+          </span>
         </label>
       </div>
       <div className="form-control">
@@ -28,7 +33,9 @@ const GenderCheckbox = ({
             checked={selectedGender === "female"}
             onChange={() => onCheckboxChange("female")}
           />
-          <span className="label-text text-base-300">Female</span>
+          <span className="label-text text-base-300">
+            {t("signup.gender.male")}
+          </span>
         </label>
       </div>
     </div>
